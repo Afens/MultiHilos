@@ -23,6 +23,6 @@ public class Guarda implements Runnable {
         Integer elemento;
         elemento = pila.sacar();
         Thread.sleep(3000);
-        System.out.printf("Plato %d ha sido Guardado", elemento);
+        System.out.printf("Plato %d ha sido Guardado\n", elemento);
     }
 }

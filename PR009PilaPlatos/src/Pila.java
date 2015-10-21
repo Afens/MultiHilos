@@ -9,9 +9,8 @@ public class Pila {
 
     public void meter(Integer elemento) throws InterruptedException {
         synchronized (cerrojo) {
-            // Espero mientras esté lleno.
 
-            // Agrego el elemento al almacén.
+            // Agrego el elemento a la pila.
             pila.add(elemento);
             // Informo.
             System.out.println("Almacenado Plato: " + elemento);

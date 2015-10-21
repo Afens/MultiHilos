@@ -21,6 +21,6 @@ public class Limpia implements Runnable {
     }
     private void guarda(Integer elemento) throws InterruptedException {
         limpios.meter(elemento);
-        System.out.printf("Plato %d ha sido puesto en la pila Limpia", elemento);
+        System.out.printf("Plato %d ha sido puesto en la pila Limpia\n", elemento);
     }
 }

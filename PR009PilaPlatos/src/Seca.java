@@ -25,10 +25,10 @@ public class Seca implements Runnable {
 
     private void coger() throws InterruptedException {
         elemento = limpios.sacar();
-        System.out.printf("Plato %d ha sido sacado de la pila Limpia", elemento);
+        System.out.printf("Plato %d ha sido sacado de la pila Limpia\n", elemento);
     }
     private void guarda() throws InterruptedException {
         secos.meter(elemento);
-        System.out.printf("Plato %d ha sido puesto en la pila Seca", elemento);
+        System.out.printf("Plato %d ha sido puesto en la pila Seca\n", elemento);
     }
 }
