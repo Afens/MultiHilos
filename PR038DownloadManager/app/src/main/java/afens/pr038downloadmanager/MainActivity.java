@@ -33,30 +33,27 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                DownloadManager gestor = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+
+                // Se crea la solicitud de descarga.
+                DownloadManager.Request solicitud = new DownloadManager.Request(
+                        Uri.parse("https://www.youtube.com/audiolibrary_download?vid=fafb35a907cd6e73"));
+                solicitud.setAllowedNetworkTypes(
+                        DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
+                solicitud.setAllowedOverRoaming(false);
+                solicitud.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "Les Toreadors.mp3");
+                // solicitud.setDestinationInExternalFilesDir(this, Environment.DIRECTORY_DOWNLOADS, "Les Toreadors.mp3");
+                solicitud.setTitle("Les Toreadors");
+                solicitud.setDescription("Les Toreadors from Carmen (by Bizet)");
+                solicitud.allowScanningByMediaScanner();
+                solicitud.setNotificationVisibility(
+                        DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                // Se encola la solicitud.
+                long mIdDescarga = gestor.enqueue(solicitud);
             }
         });
 
-
-        DownloadManager gestor = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-
-        // Se crea la solicitud de descarga.
-        DownloadManager.Request solicitud = new DownloadManager.Request(
-                Uri.parse("https://www.youtube.com/audiolibrary_download?vid=fafb35a907cd6e73"));
-        solicitud.setAllowedNetworkTypes(
-                DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
-        solicitud.setAllowedOverRoaming(false);
-        solicitud.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "Les Toreadors.mp3");
-        // solicitud.setDestinationInExternalFilesDir(this, Environment.DIRECTORY_DOWNLOADS, "Les Toreadors.mp3");
-        solicitud.setTitle("Les Toreadors");
-        solicitud.setDescription("Les Toreadors from Carmen (by Bizet)");
-        solicitud.allowScanningByMediaScanner();
-        solicitud.setNotificationVisibility(
-                DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-        // Se encola la solicitud.
-        long mIdDescarga = gestor.enqueue(solicitud);
-
+        
 
         mReceptor = new BroadcastReceiver() {
 
