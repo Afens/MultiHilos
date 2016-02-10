@@ -4,8 +4,14 @@ android {
     compileSdkVersion 23
     buildToolsVersion "21.1.2"
 
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/NOTICE'
+    }
+
     defaultConfig {
-        applicationId "afens.pr040timezonedb"
+        applicationId "afens.pr041firebase"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
@@ -24,8 +30,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
-
-    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
-    compile 'com.google.code.gson:gson:2.5'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    compile 'com.firebase:firebase-client-android:2.5.0+'
 }

@@ -9,26 +9,15 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="afens.pr040timezonedb.MainActivity"
+    tools:context="afens.pr041firebase.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <Spinner
+
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:entries="@array/zone"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="00:00:00"
-        android:id="@+id/lblTime"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="70dp" />
-
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Text"
+        android:id="@+id/txt"
+     />
 </RelativeLayout>
